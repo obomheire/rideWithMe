@@ -56,37 +56,6 @@ const HomeScreen = ({ navigation }) => {
     getLocation(), console.log(latlng);
   }, []);
 
-  const Template = ({ styleInput }) => {
-    return (
-      <View style={styleInput}>
-        <View style={styles.view6}>
-          <View style={styles.view7}>
-            <MaterialCommunityIcons
-              name="map-marker"
-              color={colors.black}
-              size={22}
-            />
-          </View>
-          <View>
-            <Text style={{ fontSize: 18, color: colors.black }}>
-              32 Olivia Rd
-            </Text>
-            <Text style={{ color: colors.grey3 }}>
-              Klipfontein 83-Ir, Boksburg
-            </Text>
-          </View>
-        </View>
-        <View>
-          <MaterialCommunityIcons
-            name="chevron-right"
-            color={colors.grey}
-            size={26}
-          />
-        </View>
-      </View>
-    );
-  };
-
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -155,10 +124,61 @@ const HomeScreen = ({ navigation }) => {
               size={26}
             />
           </View>
-              </View>
-              
-        <Template styleInput={styles.view5} />
-        <Template styleInput={{ ...styles.view5, borderBottomWidth: 0 }} />
+        </View>
+        {/* Make components */}
+        <View style={styles.view5}>
+          <View style={styles.view6}>
+            <View style={styles.view7}>
+              <MaterialCommunityIcons
+                name="map-marker"
+                color={colors.black}
+                size={22}
+              />
+            </View>
+            <View>
+              <Text style={{ fontSize: 18, color: colors.black }}>
+                32 Olivia Rd
+              </Text>
+              <Text style={{ color: colors.grey3 }}>
+                Klipfontein 83-Ir, Boksburg
+              </Text>
+            </View>
+          </View>
+          <View>
+            <MaterialCommunityIcons
+              name="chevron-right"
+              color={colors.grey}
+              size={26}
+            />
+          </View>
+        </View>
+
+        <View style={{ ...styles.view5, borderBottomWidth: 0 }}>
+          <View style={styles.view6}>
+            <View style={styles.view7}>
+              <MaterialCommunityIcons
+                name="map-marker"
+                color={colors.black}
+                size={22}
+              />
+            </View>
+            <View>
+              <Text style={{ fontSize: 18, color: colors.black }}>
+                32 Olivia Rd
+              </Text>
+              <Text style={{ color: colors.grey3 }}>
+                Klipfontein 83-Ir, Boksburg
+              </Text>
+            </View>
+          </View>
+          <View>
+            <MaterialCommunityIcons
+              name="chevron-right"
+              color={colors.grey}
+              size={26}
+            />
+          </View>
+        </View>
 
         <Text style={styles.text4}> Around you</Text>
 
@@ -176,6 +196,7 @@ const HomeScreen = ({ navigation }) => {
               longitudeDelta: 0.008,
             }}
           >
+            {/* Use FlatList */}
             {carsAround.map((item, index) => (
               <MapView.Marker coordinate={item} key={index.toString()}>
                 <Image
