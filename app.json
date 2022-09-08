@@ -18,13 +18,26 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier":"com.rideWithMe",
+      "config":{
+        "googleMapsApiKey" :"AIzaSyBZzuckQhtx4yctll9glzY7Z4INHkxpiko"
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+
+    "package":"com.rideWithMe",
+    "config" :{
+      "googleMaps":{
+        "apiKey":"AIzaSyBZzuckQhtx4yctll9glzY7Z4INHkxpiko"
+      },
+      "permissions":["ACCESS_COARSE_LOCATION","ACCESS_FINE_LOCATION","FOREGROUND_SERVICE"]
+    }
+
     },
     "web": {
       "favicon": "./assets/favicon.png"
