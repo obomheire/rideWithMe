@@ -1,19 +1,18 @@
+import "react-native-gesture-handler";
 import { StyleSheet, Text, View } from "react-native";
-import HomeScreen from "./src/screens/HomeScreen";
 import { SafeAreaProvider } from "react-native-safe-area-context";
+import RoootNavigator from "./src/navigations/RootNavigator";
 
 export default function App() {
   return (
     <SafeAreaProvider>
-      <View style={styles.container}>
-      <HomeScreen />
-    </View>
+      <RoootNavigator />
     </SafeAreaProvider>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
-  }
-})
+    flex: 1,
+  },
+});

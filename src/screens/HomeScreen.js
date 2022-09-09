@@ -104,11 +104,11 @@ const HomeScreen = ({ navigation }) => {
               </Text>
               <TouchableOpacity
                 onPress={() => {
-                  // navigation.navigate("RequestScreen", { state: 0 });
+                  navigation.navigate("RequestScreen");
                 }}
               >
                 <View style={styles.button1}>
-                  <Text style={styles.button1Text}>Ride with Uber</Text>
+                  <Text style={styles.button1Text}>Ride with Me</Text>
                 </View>
               </TouchableOpacity>
             </View>
