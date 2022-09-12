@@ -21,7 +21,7 @@
       "supportsTablet": true,
       "bundleIdentifier":"com.rideWithMe",
       "config":{
-        "googleMapsApiKey" :"AIzaSyBZzuckQhtx4yctll9glzY7Z4INHkxpiko"
+        "googleMapsApiKey" :"GOOGLE_MAPS_API_KEY"
       }
     },
     "android": {
@@ -33,7 +33,7 @@
     "package":"com.rideWithMe",
     "config" :{
       "googleMaps":{
-        "apiKey":"AIzaSyBZzuckQhtx4yctll9glzY7Z4INHkxpiko"
+        "apiKey":"GOOGLE_MAPS_API_KEY"
       },
       "permissions":["ACCESS_COARSE_LOCATION","ACCESS_FINE_LOCATION","FOREGROUND_SERVICE"]
     }

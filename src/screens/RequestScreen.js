@@ -14,73 +14,72 @@ import {
   Dimensions,
   TouchableOpacity,
 } from "react-native";
-// import BottomSheet, {
-//   BottomSheetFlatList,
-//   BottomSheetSectionList,
-// } from "@gorhom/bottom-sheet";
-// import { Avatar, Icon } from "react-native-elements";
-// import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
+import BottomSheet, {
+  BottomSheetFlatList,
+  BottomSheetSectionList,
+} from "@gorhom/bottom-sheet";
+import { Avatar } from "@rneui/base";
 import MapComponent from "../components/MapComponent";
+import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import { colors, parameters } from "../global/styles";
 import { rideData } from "../global/data";
-// import { OriginContext, DestinationContext } from "../contexts/contexts";
+import { OriginContext, DestinationContext } from "../contexts/contexts";
 
 const SCREEN_HEIGHT = Dimensions.get("window").height;
 const SCREEN_WIDTH = Dimensions.get("window").width;
 
 const RequestScreen = ({ navigation, route }) => {
-//   const { origin, dispatchOrigin } = useContext(OriginContext);
-  // const [userOrigin, setUserOrigin] = useState({
-  //   latitude: origin.latitude,
-  //   longitude: origin.longitude,
-  // });
-//   const { destination, dispatchDestination } = useContext(DestinationContext);
-  // const [userDestination, setUserDestination] = useState({
-  //   latitude: destination.latitude,
-  //   longitude: destination.longitude,
-  // });
+  const { origin, dispatchOrigin } = useContext(OriginContext);
+  const [userOrigin, setUserOrigin] = useState({
+    latitude: origin.latitude,
+    longitude: origin.longitude,
+  });
+  const { destination, dispatchDestination } = useContext(DestinationContext);
+  const [userDestination, setUserDestination] = useState({
+    latitude: destination.latitude,
+    longitude: destination.longitude,
+  });
 
-//   const bottomsheet1 = useRef(1);
+  const bottomsheet1 = useRef(1);
 
-//   const snapPoints1 = useMemo(() => ["70%"], []);
-//   const handleSheetChange1 = useCallback((index) => {}, []);
+  const snapPoints1 = useMemo(() => ["70%"], []);
+  const handleSheetChange1 = useCallback((index) => {}, []);
 
-//   useEffect(() => {
-//     setUserOrigin({ latitude: origin.latitude, longitude: origin.longitude });
-//     setUserDestination({
-//       latitude: destination.latitude,
-//       longitude: destination.longitude,
-//     });
-//   }, [origin, destination]);
+  useEffect(() => {
+    setUserOrigin({ latitude: origin.latitude, longitude: origin.longitude });
+    setUserDestination({
+      latitude: destination.latitude,
+      longitude: destination.longitude,
+    });
+  }, [origin, destination]);
 
-//   const renderFlatListItems = useCallback(
-//     ({ item }) => (
-//       <View>
-//         <View style={styles.view10}>
-//           <View style={styles.view11}>
-//             <MaterialCommunityIcons
-//               name="clock-time-four"
-//               color={colors.white}
-//               size={18}
-//             />
-//           </View>
-//           <View>
-//             <Text style={{ fontSize: 15, color: colors.grey1 }}>
-//               {item.street}
-//             </Text>
-//             <Text style={{ color: colors.grey4 }}>{item.area}</Text>
-//           </View>
-//         </View>
-//       </View>
-//     ),
-//     []
-//   );
+  const renderFlatListItems = useCallback(
+    ({ item }) => (
+      <View>
+        <View style={styles.view10}>
+          <View style={styles.view11}>
+            <MaterialCommunityIcons
+              name="clock-time-four"
+              color={colors.white}
+              size={18}
+            />
+          </View>
+          <View>
+            <Text style={{ fontSize: 15, color: colors.grey1 }}>
+              {item.street}
+            </Text>
+            <Text style={{ color: colors.grey4 }}>{item.area}</Text>
+          </View>
+        </View>
+      </View>
+    ),
+    []
+  );
 
   return (
     <View style={styles.container}>
-      {/* <View style={styles.view1}>
-        <Icon
-          type="material-community"
+      <View style={styles.view1}>
+        <MaterialCommunityIcons
           name="arrow-left"
           color={colors.grey1}
           size={32}
@@ -96,8 +95,7 @@ const RequestScreen = ({ navigation, route }) => {
               source={require("../../assets/blankProfilePic.jpg")}
             />
             <Text style={{ marginLeft: 5 }}>For Someone</Text>
-            <Icon
-              type="material-community"
+            <MaterialCommunityIcons
               name="chevron-down"
               color={colors.grey1}
               size={26}
@@ -126,8 +124,7 @@ const RequestScreen = ({ navigation, route }) => {
                 </View>
               </TouchableOpacity>
               <View style={styles.view8}>
-                <Icon
-                  type="material-community"
+                <MaterialCommunityIcons
                   name="plus-thick"
                   color={colors.black}
                   size={25}
@@ -136,10 +133,9 @@ const RequestScreen = ({ navigation, route }) => {
             </View>
           </View>
         </View>
-      </View> */}
-      <MapComponent />
-      {/* <MapComponent userOrigin={userOrigin} userDestination={userDestination} /> */}
-      {/* <BottomSheet
+      </View>
+      <MapComponent userOrigin={userOrigin} userDestination={userDestination} />
+      <BottomSheet
         ref={bottomsheet1}
         index={route.params.state}
         snapPoints={snapPoints1}
@@ -170,8 +166,7 @@ const RequestScreen = ({ navigation, route }) => {
             <View>
               <View style={styles.view10}>
                 <View style={styles.view11}>
-                  <Icon
-                    type="material-community"
+                  <MaterialCommunityIcons
                     name="map-marker"
                     color={colors.white}
                     size={20}
@@ -197,10 +192,12 @@ const RequestScreen = ({ navigation, route }) => {
             </View>
           }
         />
-      </BottomSheet> */}
+      </BottomSheet>
     </View>
   );
 }
+
+export default RequestScreen;
 
 const styles = StyleSheet.create({
   container1: { flex: 1, paddingTop: parameters.statusBarHeight },
@@ -510,6 +507,4 @@ const styles = StyleSheet.create({
   },
 
   text10: { color: colors.grey2, paddingLeft: 10 },
-});
-
-export default RequestScreen;
+})
